@@ -79,8 +79,8 @@ See [styles.md](references/styles.md) for complete CSS reference including:
    - Q&A page (h2)
 
 2. **Read Core Reference**
-   - [core.md](references/core.md) - **核心约束文档**（结构、排版、视觉组件、页面类型、SVG 图标生成规则）
-   - [styles.md](references/styles.md) - CSS 样式规范（需要自定义样式时查阅）
+   - [core.md](references/core.md) - Core constraints (structure, typography, visual components, page types, SVG icon generation rules)
+   - [styles.md](references/styles.md) - CSS style reference (consult when custom styles are needed)
 
 3. **Create Pages**
    - Follow constraints from core.md (structure, components, page types)

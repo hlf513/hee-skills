@@ -1,29 +1,29 @@
 # Reveal.js Styles Reference
 
-完整的 CSS 样式定义，包含变量系统、主题类、组件样式和 SVG 图标基础样式。
+Complete CSS style definitions, including variable system, theme classes, component styles, and SVG icon base styles.
 
 **Table of Contents:**
-- [CSS Variables](#css-variables) - 颜色系统、语义颜色、边框、阴影、容器宽度
-- [Theme Classes](#theme-classes) - 6 种主题配色
-- [Base Styles](#base-styles) - 排版、背景渐变
-- [Gradient Text](#gradient-text) - 渐变文本效果
-- [Cover Version](#cover-version) - 封面版本号
-- [Image Container](#image-container) - 图片容器
-- [Tag Component](#tag-component) - 标签组件
-- [Card Component](#card-component) - 卡片组件
-- [Link Styling](#link-styling) - 内联链接样式
-- [Link List](#link-list) - 文档链接列表
-- [Fragment Animation](#fragment-animation) - 渐进式动画
-- [Feature Icon](#feature-icon) - 特性图标容器
-- [SVG Icon Base Styles](#svg-icon-base-styles) - SVG 图标基础样式
-- [Info Box](#info-box) - 信息框组件
-- [Comparison Grid](#comparison-grid) - 对比网格
-- [Feature Grid](#feature-grid) - 特性网格
-- [Tech Category](#tech-category) - 技术分类
-- [Arrow Flow](#arrow-flow) - 箭头流程
-- [Stat Grid](#stat-grid) - 统计网格
-- [List Styles](#list-styles) - 无符号列表样式（带 !important）
-- [Container Width System](#container-width-system) - 统一容器宽度规范
+- [CSS Variables](#css-variables) - Color system, semantic colors, borders, shadows, container widths
+- [Theme Classes](#theme-classes) - 6 theme color schemes
+- [Base Styles](#base-styles) - Typography, background gradient
+- [Gradient Text](#gradient-text) - Gradient text effect
+- [Cover Version](#cover-version) - Cover version number
+- [Image Container](#image-container) - Image container
+- [Tag Component](#tag-component) - Tag component
+- [Card Component](#card-component) - Card component
+- [Link Styling](#link-styling) - Inline link styles
+- [Link List](#link-list) - Document link list
+- [Fragment Animation](#fragment-animation) - Progressive animation
+- [Feature Icon](#feature-icon) - Feature icon container
+- [SVG Icon Base Styles](#svg-icon-base-styles) - SVG icon base styles
+- [Info Box](#info-box) - Info box component
+- [Comparison Grid](#comparison-grid) - Comparison grid
+- [Feature Grid](#feature-grid) - Feature grid
+- [Tech Category](#tech-category) - Tech category
+- [Arrow Flow](#arrow-flow) - Arrow flow
+- [Stat Grid](#stat-grid) - Stat grid
+- [List Styles](#list-styles) - Unordered list styles (with !important)
+- [Container Width System](#container-width-system) - Unified container width specification
 
 ---
 
@@ -61,11 +61,11 @@
     --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.35);
     --shadow-lg: 0 30px 60px rgba(0, 0, 0, 0.4);
 
-    /* Container widths - 统一容器宽度系统 */
-    --container-narrow: 800px;   /* 列表、窄内容 */
-    --container-medium: 1000px;  /* 卡片网格、默认容器 */
-    --container-wide: 1100px;    /* 特性网格、对比网格、统计网格 */
-    --container-full: 1400px;    /* 全宽布局（特殊情况） */
+    /* Container widths - unified container width system */
+    --container-narrow: 800px;   /* Lists, narrow content */
+    --container-medium: 1000px;  /* Card grids, default container */
+    --container-wide: 1100px;    /* Feature grids, comparison grids, stat grids */
+    --container-full: 1400px;    /* Full-width layout (special cases) */
 }
 ```
 
@@ -73,7 +73,7 @@
 
 ## Theme Classes
 
-应用到 `<body>` 标签实现主题切换：
+Apply to `<body>` tag to switch themes:
 
 ```css
 .theme-ocean {
@@ -113,7 +113,7 @@
 }
 ```
 
-**使用方法**:
+**Usage**:
 ```html
 <body class="theme-ocean">
 ```
@@ -161,21 +161,21 @@
 
 ## Container Width System
 
-**⚠️ CRITICAL**: 使用统一的容器宽度系统确保页面内所有组件宽度一致，避免视觉跳跃。
+**⚠️ CRITICAL**: Use a unified container width system to ensure consistent widths across all components on a page, avoiding visual jumps.
 
-### 容器宽度定义
+### Container Width Definitions
 
-| 容器类型 | CSS 变量 | 宽度 | 使用场景 |
-|---------|---------|------|---------|
-| **窄容器** | `--container-narrow` | 800px | 列表（ul/ol）、简单文本内容 |
-| **中容器** | `--container-medium` | 1000px | 卡片网格（card-grid）、默认容器 |
-| **宽容器** | `--container-wide` | 1100px | 特性网格、对比网格、统计网格 |
-| **全容器** | `--container-full` | 1400px | 特殊全宽布局（极少使用） |
+| Container Type | CSS Variable | Width | Use Cases |
+|---------------|-------------|-------|-----------|
+| **Narrow** | `--container-narrow` | 800px | Lists (ul/ol), simple text content |
+| **Medium** | `--container-medium` | 1000px | Card grids (card-grid), default container |
+| **Wide** | `--container-wide` | 1100px | Feature grids, comparison grids, stat grids |
+| **Full** | `--container-full` | 1400px | Special full-width layouts (rarely used) |
 
-### 容器居中模板
+### Container Centering Template
 
 ```css
-/* 标准容器居中 */
+/* Standard container centering */
 .component-class {
     max-width: var(--container-*);
     margin-left: auto;
@@ -183,135 +183,135 @@
 }
 ```
 
-### 使用规则
+### Usage Rules
 
-**约束**:
-- **必须**使用 CSS 变量定义容器宽度（禁止硬编码数值）
-- **同一页面内相同类型组件使用相同容器宽度**
-- **多组件组合页面使用统一容器宽度**（优先选择 `--container-wide`）
+**Constraints**:
+- **MUST** use CSS variables for container widths (no hardcoded values)
+- **Same-type components within a page must use the same container width**
+- **Multi-component pages should use unified container width** (prefer `--container-wide`)
 
-### 组件宽度映射
+### Component Width Mapping
 
-| 组件 | 容器类型 | CSS 变量 |
-|------|---------|---------|
-| `.reveal ul` | 窄容器 | `var(--container-narrow)` |
-| `.reveal ol` | 窄容器 | `var(--container-narrow)` |
-| `.info-box` | 窄容器 | `var(--container-narrow)` |
-| `.tag-container` | 窄容器 | `var(--container-narrow)` |
-| `.card-grid` | 中容器 | `var(--container-medium)` |
-| `.feature-grid` | 宽容器 | `var(--container-wide)` |
-| `.comparison-grid` | 宽容器 | `var(--container-wide)` |
-| `.stat-grid` | 宽容器 | `var(--container-wide)` |
+| Component | Container Type | CSS Variable |
+|-----------|---------------|-------------|
+| `.reveal ul` | Narrow | `var(--container-narrow)` |
+| `.reveal ol` | Narrow | `var(--container-narrow)` |
+| `.info-box` | Narrow | `var(--container-narrow)` |
+| `.tag-container` | Narrow | `var(--container-narrow)` |
+| `.card-grid` | Medium | `var(--container-medium)` |
+| `.feature-grid` | Wide | `var(--container-wide)` |
+| `.comparison-grid` | Wide | `var(--container-wide)` |
+| `.stat-grid` | Wide | `var(--container-wide)` |
 
-### 多组件组合页面的宽度统一
+### Width Unification for Multi-Component Pages
 
-**⚠️ CRITICAL**: 视觉一致性优先于组件默认规范。同一页面内多个主要组件应尽量统一宽度，避免视觉跳跃。
+**⚠️ CRITICAL**: Visual consistency takes priority over component defaults. Multiple primary components on the same page should use unified widths to avoid visual jumps.
 
-当同一页面包含多个不同组件时，使用以下规则确保宽度统一：
+When a page contains multiple different components, use the following rules to ensure width consistency:
 
-**基础规则**:
-1. **页面包含 2+ 个网格组件** → 所有组件使用 `var(--container-wide)`
-2. **页面包含网格 + 列表** → 网格使用 `var(--container-wide)`，列表使用 `var(--container-narrow)`
-3. **页面仅包含列表/文本** → 使用 `var(--container-narrow)`
+**Base rules**:
+1. **Page has 2+ grid components** → All components use `var(--container-wide)`
+2. **Page has grid + list** → Grid uses `var(--container-wide)`, list uses `var(--container-narrow)`
+3. **Page has only lists/text** → Use `var(--container-narrow)`
 
-**视觉一致性优先原则**:
-- **同一页面内主要组件应统一宽度**，即使组件类型不同
-- **避免宽度跳跃**：info-box、arrow-flow 等组件在多组件页面应与网格组件同宽
-- **次要内容可降级**：仅当列表/文本为辅助说明时，可保持窄容器
+**Visual consistency priority principle**:
+- **Primary components on the same page should have unified widths**, even if component types differ
+- **Avoid width jumps**: info-box, arrow-flow, etc. should match grid component widths on multi-component pages
+- **Secondary content can downgrade**: Lists/text can stay narrow only when used as supplementary descriptions
 
-### 组件组合场景速查表
+### Component Combination Quick Reference
 
-| 组件组合 | 推荐宽度 | 原因 |
-|---------|---------|------|
-| feature-grid + stat-grid | wide + wide | 规则1：两个网格组件 |
-| comparison-grid + info-box | wide + wide | ⭐ 视觉一致性优先 |
-| feature-grid + arrow-flow | wide + wide | ⭐ 视觉一致性优先 |
-| feature-grid + ul(次要) | wide + narrow | 规则2：网格为主，列表为辅 |
-| info-box + tag-container | narrow + narrow | 规则3：无非网格组件 |
-| 单一任意组件 | 按默认宽度 | 单组件无需统一 |
+| Component Combination | Recommended Width | Reason |
+|----------------------|-------------------|--------|
+| feature-grid + stat-grid | wide + wide | Rule 1: Two grid components |
+| comparison-grid + info-box | wide + wide | ⭐ Visual consistency priority |
+| feature-grid + arrow-flow | wide + wide | ⭐ Visual consistency priority |
+| feature-grid + ul (secondary) | wide + narrow | Rule 2: Grid is primary, list is secondary |
+| info-box + tag-container | narrow + narrow | Rule 3: No grid components |
+| Single component | Default width | No unification needed for single component |
 
-### 推荐示例
+### Recommended Examples
 
-**✅ 场景 1: 网格 + info-box（统一宽度）**
+**✅ Scenario 1: Grid + info-box (unified width)**
 ```html
 <section>
-    <h3>网关服务</h3>
+    <h3>Gateway Service</h3>
 
-    <!-- Info Box 使用宽容器以与 comparison-grid 保持一致 -->
+    <!-- Info Box uses wide container to match comparison-grid -->
     <div class="info-box" style="max-width: var(--container-wide);">
-        <div class="info-box-title">网关作用</div>
-        <p>将内部 RPC 方法对外暴露</p>
+        <div class="info-box-title">Gateway Role</div>
+        <p>Expose internal RPC methods externally</p>
     </div>
 
-    <!-- Comparison Grid 宽容器 -->
+    <!-- Comparison Grid wide container -->
     <div class="comparison-grid">
-        <div class="comparison-item">HTTP 网关</div>
-        <div class="comparison-item">RPC 网关</div>
+        <div class="comparison-item">HTTP Gateway</div>
+        <div class="comparison-item">RPC Gateway</div>
     </div>
 </section>
 ```
 
-**✅ 场景 2: 网格 + 次要列表（宽度分层）**
+**✅ Scenario 2: Grid + secondary list (layered widths)**
 ```html
 <section>
-    <h3>核心功能</h3>
+    <h3>Core Features</h3>
 
-    <!-- Feature Grid 宽容器（主要内容） -->
+    <!-- Feature Grid wide container (primary content) -->
     <div class="feature-grid">...</div>
 
-    <!-- 辅助说明列表窄容器（次要内容） -->
+    <!-- Supplementary list narrow container (secondary content) -->
     <ul style="max-width: var(--container-narrow);">
-        <li>注意：以上功能需配置权限</li>
+        <li>Note: The above features require permission configuration</li>
     </ul>
 </section>
 ```
 
-**✅ 场景 3: 多网格组件（统一宽度）**
+**✅ Scenario 3: Multiple grid components (unified width)**
 ```html
 <section>
-    <h3>系统架构</h3>
+    <h3>System Architecture</h3>
 
-    <!-- Feature Grid 宽容器 -->
+    <!-- Feature Grid wide container -->
     <div class="feature-grid">...</div>
 
-    <!-- Stat Grid 宽容器（与 feature-grid 宽度一致） -->
+    <!-- Stat Grid wide container (matches feature-grid width) -->
     <div class="stat-grid">...</div>
 </section>
 ```
 
-### ❌ 避免的布局
+### ❌ Layouts to Avoid
 
-**❌ 错误: 宽度不一致导致视觉跳跃**
+**❌ Error: Inconsistent widths causing visual jumps**
 ```html
 <section>
-    <h3>网关服务</h3>
+    <h3>Gateway Service</h3>
 
-    <!-- Info Box 默认窄容器 800px -->
+    <!-- Info Box default narrow container 800px -->
     <div class="info-box">
-        网关作用说明
+        Gateway description
     </div>
 
-    <!-- Comparison Grid 宽容器 1100px -->
+    <!-- Comparison Grid wide container 1100px -->
     <div class="comparison-grid">
-        两种网关模式
+        Two gateway modes
     </div>
 </section>
 ```
-**问题**: 两个主要组件宽度不同（800px vs 1100px），造成视觉跳跃。
+**Problem**: Two primary components have different widths (800px vs 1100px), causing visual jumps.
 
-**❌ 错误: 多个主要窄容器组件未统一**
+**❌ Error: Multiple primary narrow-container components not unified**
 ```html
 <section>
-    <h3>配置说明</h3>
+    <h3>Configuration</h3>
 
-    <!-- Info Box 窄容器 800px -->
-    <div class="info-box">基础配置</div>
+    <!-- Info Box narrow container 800px -->
+    <div class="info-box">Basic configuration</div>
 
-    <!-- Tag Container 默认窄容器 800px，但未显式声明 -->
-    <div class="tag-container">标签列表</div>
+    <!-- Tag Container default narrow container 800px, but not explicitly declared -->
+    <div class="tag-container">Tag list</div>
 </section>
 ```
-**问题**: 虽然宽度相同，但应显式使用 `var(--container-narrow)` 确保一致性。
+**Problem**: Although widths are the same, `var(--container-narrow)` should be explicitly used to ensure consistency.
 
 ---
 
@@ -326,7 +326,7 @@
 }
 ```
 
-**使用**: 仅用于封面页 h1 标题
+**Usage**: Only for cover page h1 title
 
 ## Cover Version
 
@@ -427,18 +427,18 @@
 }
 ```
 
-**适用场景**: 内联文本中的链接
+**Applicable scenarios**: Links in inline text
 
 ---
 
 ## Link List
 
-**用途**: 展示文档链接列表（设计文档、API 文档等）
+**Purpose**: Display document link lists (design docs, API docs, etc.)
 
-**约束**:
-- 每个链接必须包含 SVG 文档图标
-- 使用卡片样式，提供更好的点击体验
-- 支持悬停效果（背景变色 + 右移）
+**Constraints**:
+- Each link MUST include an SVG document icon
+- Use card style for better click experience
+- Supports hover effects (background color change + right shift)
 
 ```css
 .link-list {
@@ -480,7 +480,7 @@
 }
 ```
 
-**使用示例**:
+**Usage example**:
 ```html
 <div class="link-list">
     <a href="https://example.com/doc1" target="_blank" class="link-item">
@@ -491,7 +491,7 @@
             <line x1="16" y1="17" x2="8" y2="17"></line>
             <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        文档标题
+        Document Title
     </a>
 </div>
 ```
@@ -521,7 +521,7 @@
 
 ## SVG Icon Base Styles
 
-所有 SVG 图标必须使用以下标准属性：
+All SVG icons must use the following standard attributes:
 
 ```css
 /* SVG Icon Template */
@@ -536,13 +536,13 @@ svg {
 }
 ```
 
-**关键属性说明**:
-- `currentColor`: 自动继承父元素的颜色（通常是 `var(--accent-color)`）
-- `stroke-width="2"`: 保持线条粗细一致
-- `fill="none"`: 使用描边风格（非填充）
-- `viewBox="0 0 24 24"`: 统一使用 24x24 网格
+**Key attribute notes**:
+- `currentColor`: Auto-inherits parent element color (usually `var(--accent-color)`)
+- `stroke-width="2"`: Consistent line thickness
+- `fill="none"`: Stroke-based style (not filled)
+- `viewBox="0 0 24 24"`: Uniform 24x24 grid
 
-**使用示例**:
+**Usage example**:
 ```html
 <div class="feature-icon">
     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -552,10 +552,10 @@ svg {
 </div>
 ```
 
-**颜色继承**:
-- `.feature-icon` 使用 `color: var(--accent-color)`
-- SVG 的 `stroke="currentColor"` 自动继承父元素颜色
-- 切换主题时，SVG 图标颜色自动更新
+**Color inheritance**:
+- `.feature-icon` uses `color: var(--accent-color)`
+- SVG `stroke="currentColor"` auto-inherits parent element color
+- When switching themes, SVG icon colors update automatically
 
 ---
 
@@ -589,7 +589,7 @@ svg {
     margin-bottom: 1rem;
 }
 
-/* Info box 内部文本字号约束 */
+/* Info box internal text font size constraints */
 .info-box p {
     font-size: 1.15rem !important;
 }
@@ -603,14 +603,14 @@ svg {
 }
 ```
 
-**字号层级**:
-- `info-box-title`: 1.3rem（标题）
-- `info-box` 内部文本: 1.15rem（内容）
-- 保持标题 > 内容的视觉层级
+**Font size hierarchy**:
+- `info-box-title`: 1.3rem (title)
+- `info-box` internal text: 1.15rem (content)
+- Maintain title > content visual hierarchy
 
-**间距规范**:
-- 标题与内容间距: `margin-bottom: 1rem`
-- 提供清晰的视觉分离
+**Spacing specification**:
+- Title to content spacing: `margin-bottom: 1rem`
+- Provides clear visual separation
 
 ## Comparison Grid
 
@@ -722,13 +722,13 @@ svg {
 
 ## Stat Grid
 
-**用途**: 展示数据指标、部署统计、系统状态
+**Purpose**: Display data metrics, deployment statistics, system status
 
-**约束**:
-- 支持任意数量统计项（1-6 个）
-- 每个统计项必须包含：大号数字、标签
-- 可添加描述以提供上下文（当需要说明时）
-- **自适应布局**：自动根据数量调整列数（1 项 1 列，2 项 2 列，3+ 项 3 列）
+**Constraints**:
+- Supports any number of stat items (1-6)
+- Each stat item MUST include: large number, label
+- Optional description for context (when explanation is needed)
+- **Auto-fit layout**: Automatically adjusts columns based on count (1 item = 1 col, 2 items = 2 cols, 3+ items = 3 cols)
 
 ```css
 .stat-grid {
@@ -764,7 +764,7 @@ svg {
 
 ## List Styles
 
-**⚠️ CRITICAL**: 使用 `!important` 覆盖 Reveal.js 默认样式，防止左侧间距问题
+**⚠️ CRITICAL**: Use `!important` to override Reveal.js default styles and prevent left spacing issues
 
 ```css
 .reveal ul {
@@ -800,10 +800,10 @@ svg {
 }
 ```
 
-**关键点**:
-- **始终**使用 `!important` 覆盖 Reveal.js 主题默认值
-- 设置 `padding-left: 0` 和 `margin-left: 0` 防止间距
-- 保持 `ol` 的 `padding-left: 2rem` 以正确显示编号
+**Key points**:
+- **Always** use `!important` to override Reveal.js theme defaults
+- Set `padding-left: 0` and `margin-left: 0` to prevent spacing
+- Keep `ol`'s `padding-left: 2rem` for correct number display
 
 ---
 
@@ -811,48 +811,48 @@ svg {
 
 ### Quick Assembly
 
-构建完整的 CSS 文件，按顺序组合以下章节：
+Build a complete CSS file by combining the following sections in order:
 
 1. **[CSS Variables](#css-variables)**
-   - 包含：颜色系统、语义颜色、边框、阴影、容器宽度
+   - Includes: Color system, semantic colors, borders, shadows, container widths
 
 2. **[Theme Classes](#theme-classes)**
-   - 根据需要选择主题：ocean / forest / sunset / night / cyber / rose
-   - 使用方法：`<body class="theme-ocean">`
+   - Choose a theme as needed: ocean / forest / sunset / night / cyber / rose
+   - Usage: `<body class="theme-ocean">`
 
 3. **[Base Styles](#base-styles)**
-   - 背景渐变、排版（h1/h2/h3/p/li）
+   - Background gradient, typography (h1/h2/h3/p/li)
 
-4. **基础组件** - 按需选择：
-   - [Gradient Text](#gradient-text) - 封面标题
-   - [Cover Version](#cover-version) - 版本号
-   - [Image Container](#image-container) - 图片容器
-   - [Tag Component](#tag-component) - 标签
-   - [Card Component](#card-component) - 卡片
-   - [Link Styling](#link-styling) - 内联链接
-   - [Link List](#link-list) - 文档链接列表
-   - [Fragment Animation](#fragment-animation) - 动画效果
+4. **Base Components** - Select as needed:
+   - [Gradient Text](#gradient-text) - Cover title
+   - [Cover Version](#cover-version) - Version number
+   - [Image Container](#image-container) - Image container
+   - [Tag Component](#tag-component) - Tags
+   - [Card Component](#card-component) - Cards
+   - [Link Styling](#link-styling) - Inline links
+   - [Link List](#link-list) - Document link list
+   - [Fragment Animation](#fragment-animation) - Animation effects
 
-5. **SVG 图标** - 按需选择：
-   - [Feature Icon](#feature-icon) - 特性图标容器
-   - [SVG Icon Base Styles](#svg-icon-base-styles) - SVG 图标基础样式
+5. **SVG Icons** - Select as needed:
+   - [Feature Icon](#feature-icon) - Feature icon container
+   - [SVG Icon Base Styles](#svg-icon-base-styles) - SVG icon base styles
 
-6. **高级组件** - 按需选择：
-   - [Info Box](#info-box) - 信息框
-   - [Comparison Grid](#comparison-grid) - 对比网格
-   - [Feature Grid](#feature-grid) - 特性网格
-   - [Tech Category](#tech-category) - 技术分类
-   - [Arrow Flow](#arrow-flow) - 箭头流程
-   - [Stat Grid](#stat-grid) - 统计网格
+6. **Advanced Components** - Select as needed:
+   - [Info Box](#info-box) - Info box
+   - [Comparison Grid](#comparison-grid) - Comparison grid
+   - [Feature Grid](#feature-grid) - Feature grid
+   - [Tech Category](#tech-category) - Tech category
+   - [Arrow Flow](#arrow-flow) - Arrow flow
+   - [Stat Grid](#stat-grid) - Stat grid
 
 7. **[List Styles](#list-styles)**
-   - 无符号列表样式（带 !important）
+   - Unordered list styles (with !important)
 
 ### Example: Minimal CSS Template
 
 ```html
 <style>
-/* Step 1: CSS Variables - 见 [CSS Variables](#css-variables) */
+/* Step 1: CSS Variables - see [CSS Variables](#css-variables) */
 :root {
     --accent-color: #38bdf8;
     --accent-transparent: rgba(56, 189, 248, 0.3);
@@ -867,12 +867,12 @@ svg {
     --container-wide: 1100px;
 }
 
-/* Step 2: Theme Class - 选择一个主题（见 [Theme Classes](#theme-classes)） */
+/* Step 2: Theme Class - choose a theme (see [Theme Classes](#theme-classes)) */
 body.theme-ocean {
     --accent-color: #0ea5e9;
 }
 
-/* Step 3-7: 按需添加其他组件样式（见上述 Quick Assembly 列表） */
+/* Step 3-7: Add other component styles as needed (see Quick Assembly list above) */
 </style>
 ```
 
@@ -880,11 +880,11 @@ body.theme-ocean {
 
 ## Quick Start
 
-1. **选择主题**: 在 `<body>` 标签添加主题类（如 `class="theme-ocean"`）
-2. **组合 CSS**: 按上述顺序从各个章节复制所需的 CSS 代码
-3. **使用组件**: 根据 [core.md](core.md) 的约束规范选择组件
-4. **SVG 图标**: 每个特性生成对应的 SVG icon，使用 `currentColor` 自动继承主题色
+1. **Choose a theme**: Add a theme class to the `<body>` tag (e.g., `class="theme-ocean"`)
+2. **Assemble CSS**: Copy the needed CSS code from each section in the order above
+3. **Use components**: Select components based on the constraints in [core.md](core.md)
+4. **SVG icons**: Generate a corresponding SVG icon for each feature, use `currentColor` to auto-inherit theme color
 
-**文件引用**:
-- 核心约束见 [core.md](core.md)
-- 工作流见 [SKILL.md](../SKILL.md)
+**File references**:
+- Core constraints: [core.md](core.md)
+- Workflow: [SKILL.md](../SKILL.md)

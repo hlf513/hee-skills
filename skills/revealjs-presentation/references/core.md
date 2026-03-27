@@ -1,14 +1,14 @@
 # Reveal.js Core Constraints
 
-核心约束文档：定义 Reveal.js 演示文稿的所有结构、排版、视觉组件和页面规则。
+Core constraints document: Defines all structure, typography, visual components, and page rules for Reveal.js presentations.
 
 **Table of Contents:**
-- [Structure](#structure) - 页面层级、嵌套结构、导航
-- [Typography](#typography) - 标题层级、字体规范
-- [Visual Components](#visual-components) - 视觉组件约束规范
-- [Page Types](#page-types) - 各类页面的生成规则
-- [Lists](#lists) - 列表使用规范
-- [SVG Icons](#svg-icons) - SVG 图标生成规则
+- [Structure](#structure) - Page hierarchy, nested structure, navigation
+- [Typography](#typography) - Title hierarchy, font specifications
+- [Visual Components](#visual-components) - Visual component constraints
+- [Page Types](#page-types) - Generation rules for each page type
+- [Lists](#lists) - List usage rules
+- [SVG Icons](#svg-icons) - SVG icon generation rules
 
 ---
 
@@ -29,7 +29,7 @@ Presentation
 
 ### Nested Section Structure
 
-**⚠️ CRITICAL**: 必须使用嵌套 section 结构实现上下导航
+**⚠️ CRITICAL**: MUST use nested section structure for up/down navigation
 
 ```html
 <!-- Outer section: horizontal navigation (between chapters) -->
@@ -53,15 +53,15 @@ Presentation
 </section>
 ```
 
-**导航方式**:
-- **Left/Right**: 在章节之间导航
-- **Up/Down**: 在章节内页面间导航
-- **ESC**: 查看 2D 全局预览
+**Navigation**:
+- **Left/Right**: Navigate between chapters
+- **Up/Down**: Navigate between pages within a chapter
+- **ESC**: View 2D overview
 
-**常见错误**:
-- ❌ 每个页面作为独立的顶层 section
-- ❌ 忘记用外层 section 包裹章节
-- ✅ **始终**用嵌套结构包裹每个章节的页面
+**Common mistakes**:
+- ❌ Each page as an independent top-level section
+- ❌ Forgetting to wrap chapters in outer sections
+- ✅ **Always** wrap each chapter's pages in nested structure
 
 ---
 
@@ -71,10 +71,10 @@ Presentation
 
 | Level | Size | Weight | Usage |
 |-------|------|--------|-------|
-| h1 | 4rem | 900 | 封面标题（唯一） |
-| h2 | 2.8rem | 600 | 章节封面（编号） |
-| h3 | 2rem | 600 | 内容页标题 |
-| p/li | 1.5rem | 400 | 正文内容 |
+| h1 | 4rem | 900 | Cover title (unique) |
+| h2 | 2.8rem | 600 | Chapter cover (numbered) |
+| h3 | 2rem | 600 | Content page title |
+| p/li | 1.5rem | 400 | Body text |
 
 ### Title Decision Tree
 
@@ -138,12 +138,12 @@ Need to present content?
 
 ### Feature Grid
 
-**用途**: 展示多个功能、特性、挑战、解决方案
+**Purpose**: Display multiple features, capabilities, challenges, or solutions
 
-**约束**:
-- 3-6 个特性，每行 3 个
-- 每个特性必须有 SVG 图标
-- 每个特性必须有名称和 2 行描述
+**Constraints**:
+- 3-6 features, 3 per row
+- Each feature MUST have an SVG icon
+- Each feature MUST have a name and 2-line description
 
 ```html
 <div class="feature-grid">
@@ -158,20 +158,20 @@ Need to present content?
 </div>
 ```
 
-**生成规则**:
-1. 为每个特性生成语义化的 SVG 图标（见 SVG Icons 章节）
-2. 特性名称使用 `var(--accent-color)` 高亮
-3. 描述使用 `<br>` 分为两行，保持简洁
+**Generation rules**:
+1. Generate a semantic SVG icon for each feature (see SVG Icons section)
+2. Feature names are highlighted with `var(--accent-color)`
+3. Descriptions use `<br>` to split into two lines, keep concise
 
 ### Stat Grid
 
-**用途**: 展示数据指标、部署统计、系统状态
+**Purpose**: Display data metrics, deployment statistics, system status
 
-**约束**:
-- 支持任意数量统计项（1-6 个）
-- 每个统计项必须包含：大号数字、标签
-- 可添加描述以提供上下文（当需要说明时）
-- **自适应布局**：自动根据数量调整列数（1 项 1 列，2 项 2 列，3+ 项 3 列）
+**Constraints**:
+- Supports any number of stat items (1-6)
+- Each stat item MUST include: large number, label
+- Optional description for context (when explanation is needed)
+- **Auto-fit layout**: Automatically adjusts columns based on count (1 item = 1 col, 2 items = 2 cols, 3+ items = 3 cols)
 
 ```html
 <div class="stat-grid">
@@ -186,21 +186,21 @@ Need to present content?
 </div>
 ```
 
-**生成规则**:
-1. 数字使用 `var(--accent-color)` 突出显示
-2. 添加描述以提供上下文（当数字需要说明时）
-3. 用于数据指标、部署统计、系统状态展示
-4. 使用自适应布局，无需担心数量导致的空白区域
+**Generation rules**:
+1. Numbers are highlighted with `var(--accent-color)`
+2. Add descriptions for context (when numbers need explanation)
+3. Used for data metrics, deployment statistics, system status display
+4. Uses auto-fit layout, no need to worry about gaps from item count
 
 ### Comparison Grid
 
-**用途**: 对比两个方案、选项、模式
+**Purpose**: Compare two options, approaches, or patterns
 
-**约束**:
-- 2 列布局
-- **必须使用不同颜色区分左右两侧**
-- **禁止硬编码颜色值**，使用 `var(--accent-color)` 或 CSS 变量
-- 左侧使用主题色，右侧使用辅助色（通过 style 属性设置背景和边框）
+**Constraints**:
+- 2-column layout
+- **MUST use different colors to distinguish left/right sides**
+- **NO hardcoded color values**, use `var(--accent-color)` or CSS variables
+- Left side uses theme color, right side uses a secondary color (set background and border via style attribute)
 
 ```html
 <div class="comparison-grid">
@@ -217,21 +217,21 @@ Need to present content?
 </div>
 ```
 
-**颜色使用规则**:
-- 左侧：使用 `var(--accent-bg)` 和 `var(--accent-transparent)`
-- 右侧：使用不同的辅助色（如紫色 `rgba(139, 92, 246, *)`）
-- 标题颜色：使用对应的颜色变量或直接颜色值
-- **关键约束**：两侧颜色必须有明显视觉差异
+**Color usage rules**:
+- Left side: Use `var(--accent-bg)` and `var(--accent-transparent)`
+- Right side: Use a different secondary color (e.g., purple `rgba(139, 92, 246, *)`)
+- Title colors: Use corresponding color variables or direct color values
+- **Key constraint**: Both sides MUST have a clear visual difference
 
 ### Arrow Flow
 
-**用途**: 展示请求流程、调用链路、过程步骤
+**Purpose**: Display request flows, call chains, process steps
 
-**约束**:
-- 步骤水平排列
-- 使用 `→` 箭头连接
-- 展示请求流程、调用链路、过程步骤
-- 可单独使用或嵌入 info-box 中
+**Constraints**:
+- Steps arranged horizontally
+- Connected with `→` arrows
+- Displays request flows, call chains, process steps
+- Can be used standalone or embedded in info-box
 
 ```html
 <div class="arrow-flow">
@@ -245,7 +245,7 @@ Need to present content?
 </div>
 ```
 
-**配合 info-box**:
+**Combined with info-box**:
 ```html
 <div class="info-box">
     <div class="info-box-title">HTTP Gateway Flow</div>
@@ -261,11 +261,11 @@ Need to present content?
 
 ### Info Box
 
-**用途**: 组件描述、技术细节、功能说明
+**Purpose**: Component descriptions, technical details, feature explanations
 
-**约束**:
-- 带顶部强调边框
-- 标题使用 `var(--accent-color)`
+**Constraints**:
+- Top accent border
+- Title uses `var(--accent-color)`
 
 ```html
 <div class="info-box">
@@ -279,12 +279,12 @@ Need to present content?
 
 ### Document Link List
 
-**用途**: 展示文档链接列表（设计文档、API 文档、参考资料等）
+**Purpose**: Display document link lists (design docs, API docs, references, etc.)
 
-**约束**:
-- 每个链接必须包含 SVG 文档图标
-- 使用卡片样式，提供更好的点击体验
-- 支持悬停效果（背景变色 + 右移）
+**Constraints**:
+- Each link MUST include an SVG document icon
+- Use card style for better click experience
+- Supports hover effects (background color change + right shift)
 
 ```html
 <div class="link-list">
@@ -296,7 +296,7 @@ Need to present content?
             <line x1="16" y1="17" x2="8" y2="17"></line>
             <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        文档标题
+        Document Title
     </a>
     <a href="https://example.com/doc2" target="_blank" class="link-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 0.5rem;">
@@ -306,25 +306,25 @@ Need to present content?
             <line x1="16" y1="17" x2="8" y2="17"></line>
             <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        另一个文档
+        Another Document
     </a>
 </div>
 ```
 
-**生成规则**:
-1. 使用文档图标增强视觉识别
-2. 链接使用 `target="_blank"` 在新标签页打开
-3. 卡片样式比普通链接更易识别和点击
-4. 悬停效果提供清晰的交互反馈
+**Generation rules**:
+1. Use document icons for visual identification
+2. Links use `target="_blank"` to open in new tab
+3. Card style is more recognizable and clickable than plain links
+4. Hover effects provide clear interaction feedback
 
 ### Card Grid
 
-**用途**: 路线图、章节导航、选项展示
+**Purpose**: Roadmaps, chapter navigation, option display
 
-**约束**:
-- 布局：2x2（4 项）或 3 列（6 项）
-- 每个卡片包含编号、标题、描述
-- 副标题：添加副标题以提供额外信息（当需要时）
+**Constraints**:
+- Layout: 2x2 (4 items) or 3-column (6 items)
+- Each card includes number, title, description
+- Subtitle: Add subtitle for additional information (when needed)
 
 ```html
 <div class="card-grid">
@@ -345,10 +345,10 @@ Need to present content?
 
 ### 1. Cover Page
 
-**约束**:
-- **仅包含**: h1 标题 + 副标题 + 版本信息
-- **禁止**: 添加议程、路线图、章节列表
-- h1 必须使用 `gradient-text` 类
+**Constraints**:
+- **Only includes**: h1 title + subtitle + version info
+- **Forbidden**: Adding agenda, roadmap, chapter list
+- h1 MUST use `gradient-text` class
 
 ```html
 <section>
@@ -360,23 +360,23 @@ Need to present content?
 
 ### 2. Roadmap Page
 
-**约束**:
-- **必须**: 独立的 h2 章节页面
-- **必须**: 使用网格组件展示议程（card-grid 或 feature-grid）
-- 标题选择：技术演示使用"议程"，业务演示使用"内容概览"
+**Constraints**:
+- **MUST**: Standalone h2 chapter page
+- **MUST**: Use grid component for agenda (card-grid or feature-grid)
+- Title choice: Use "Agenda" for technical presentations, "Overview" for business presentations
 
-**布局选择**:
+**Layout options**:
 
-| 议程项数量 | 推荐布局 | 原因 |
-|----------|---------|------|
-| 4 个 | card-grid（2列） | 标准布局，对称美观 |
-| 5-6 个 | feature-grid（3列） | 避免单独一行，支持图标和描述 |
-| 7+ 个 | 考虑拆分章节 | 避免信息过载 |
+| Agenda items | Recommended layout | Reason |
+|-------------|-------------------|--------|
+| 4 | card-grid (2 cols) | Standard layout, symmetrical and clean |
+| 5-6 | feature-grid (3 cols) | Avoids lonely row, supports icons and descriptions |
+| 7+ | Consider splitting chapters | Avoids information overload |
 
-**方案 1: card-grid（标准布局，适合 4 个议程项）**
+**Option 1: card-grid (standard layout, for 4 agenda items)**
 ```html
 <section>
-    <h2>议程</h2>
+    <h2>Agenda</h2>
     <div class="card-grid">
         <div class="card">
             <div class="card-title">01</div>
@@ -398,10 +398,10 @@ Need to present content?
 </section>
 ```
 
-**方案 2: feature-grid（增强布局，适合 5-6 个议程项）**
+**Option 2: feature-grid (enhanced layout, for 5-6 agenda items)**
 ```html
 <section>
-    <h2>内容概览</h2>
+    <h2>Overview</h2>
     <div class="feature-grid" style="margin-top: 3rem;">
         <div class="feature-item">
             <div class="feature-icon">
@@ -415,22 +415,22 @@ Need to present content?
 </section>
 ```
 
-**布局对比**:
+**Layout comparison**:
 
-| 特性 | card-grid | feature-grid |
-|------|-----------|--------------|
-| 列数 | 2 列 | 3 列 |
-| 图标 | ❌ 无 | ✅ SVG 图标 |
-| 描述 | ❌ 无 | ✅ 2 行描述 |
-| 最佳数量 | 4 个 | 5-6 个 |
-| 视觉风格 | 简洁 | 丰富 |
+| Feature | card-grid | feature-grid |
+|---------|-----------|--------------|
+| Columns | 2 cols | 3 cols |
+| Icons | None | SVG icons |
+| Descriptions | None | 2-line descriptions |
+| Best count | 4 items | 5-6 items |
+| Visual style | Clean | Rich |
 
 ### 3. Chapter Cover
 
-**约束**:
-- 使用 h2 标题
-- 必须编号（01, 02, 03...）
-- 包含简短描述
+**Constraints**:
+- Use h2 title
+- Must be numbered (01, 02, 03...)
+- Include a brief description
 
 ```html
 <section>
@@ -441,15 +441,15 @@ Need to present content?
 
 ### 4. Content Page
 
-**约束**:
-- 使用 h3 标题
-- 根据内容类型选择合适的组件：
-  - 多个特性 → feature-grid
-  - 数据指标 → stat-grid
-  - 对比内容 → comparison-grid
-  - 流程步骤 → arrow-flow
-  - 单一描述 → info-box
-  - 简单列表 → ul/li
+**Constraints**:
+- Use h3 title
+- Choose appropriate component based on content type:
+  - Multiple features → feature-grid
+  - Data metrics → stat-grid
+  - Comparison content → comparison-grid
+  - Process steps → arrow-flow
+  - Single description → info-box
+  - Simple list → ul/li
 
 ```html
 <section>
@@ -461,11 +461,11 @@ Need to present content?
 
 ### 5. Content Page with List
 
-**约束**:
-- 使用 h3 标题
-- 列表最多 5 项
-- 每项必须是描述性短语（非单词）
-- 仅 1 级列表（禁止嵌套）
+**Constraints**:
+- Use h3 title
+- List maximum 5 items
+- Each item must be a descriptive phrase (not a single word)
+- 1-level lists only (no nesting)
 
 ```html
 <section>
@@ -480,11 +480,11 @@ Need to present content?
 
 ### 6. Content Page with Image
 
-**约束**:
-- 使用 h3 标题
-- 图片必须包裹在 `.img-box` 中
-- 必须添加图片说明（"Figure X: Description"）
-- 开发时使用相对路径，交付前转换为 base64
+**Constraints**:
+- Use h3 title
+- Image must be wrapped in `.img-box`
+- Must add image caption ("Figure X: Description")
+- Use relative paths during development, convert to base64 before delivery
 
 ```html
 <section>
@@ -500,15 +500,15 @@ Need to present content?
 
 ### 7. Q&A Page
 
-**约束**:
-- 使用 h2 标题
-- 简洁的欢迎信息
+**Constraints**:
+- Use h2 title
+- Brief welcome message
 
 ```html
 <section>
     <h2>Q&A</h2>
     <p style="font-size: 1.8rem; margin-top: 2rem; color: var(--text-muted);">
-        欢迎提问与交流
+        Questions and discussion welcome
     </p>
 </section>
 ```
@@ -519,11 +519,11 @@ Need to present content?
 
 ### List Rules
 
-**约束**:
-- ✅ **仅 1 级列表**（禁止嵌套 `<ul><ul>` 或 `<ul><ol>`）
-- ✅ 每项必须是描述性短语（非单个词）
-- ✅ 每页最多 5 项
-- ✅ 使用 `<span class="highlight">` 强调关键词
+**Constraints**:
+- ✅ **1-level lists only** (no nested `<ul><ul>` or `<ul><ol>`)
+- ✅ Each item must be a descriptive phrase (not a single word)
+- ✅ Maximum 5 items per page
+- ✅ Use `<span class="highlight">` to emphasize keywords
 
 ```html
 <ul>
@@ -533,7 +533,7 @@ Need to present content?
 </ul>
 ```
 
-**⚠️ CRITICAL**: CSS 必须使用 `!important` 覆盖 Reveal.js 默认样式，防止左侧间距问题（见 styles.md）
+**⚠️ CRITICAL**: CSS MUST use `!important` to override Reveal.js default styles and prevent left spacing issues (see styles.md)
 
 ---
 
@@ -541,14 +541,14 @@ Need to present content?
 
 ### Icon Generation Rule
 
-**⚠️ CRITICAL**: 所有特性、卡片、强调元素都必须使用对应的 SVG 图标
+**⚠️ CRITICAL**: All features, cards, and emphasis elements MUST use corresponding SVG icons
 
-**规则**:
-1. **每个标题/特性必须生成一个语义化的 SVG icon**
-2. **SVG icon 颜色必须与 `currentColor` 一致**（自动继承主题色）
-3. **使用标准 Feather Icons 风格**（stroke-based，非 filled）
-4. **统一尺寸**: `width="32" height="32" viewBox="0 0 24 24"`
-5. **统一属性**: `fill="none" stroke="currentColor" stroke-width="2"`
+**Rules**:
+1. **Each title/feature must have a semantic SVG icon**
+2. **SVG icon color must match `currentColor`** (auto-inherits theme color)
+3. **Use standard Feather Icons style** (stroke-based, not filled)
+4. **Consistent size**: `width="32" height="32" viewBox="0 0 24 24"`
+5. **Consistent attributes**: `fill="none" stroke="currentColor" stroke-width="2"`
 
 ### Icon Template
 
@@ -560,25 +560,25 @@ Need to present content?
 
 ### Semantic Icon Selection
 
-根据内容语义选择合适的图标：
+Choose appropriate icons based on content semantics:
 
-| 语义 | 图标类型 | 示例场景 |
-|------|---------|----------|
-| **安全/认证** | 锁/盾牌 | Authentication, Security, Authorization |
-| **性能/速度** | 闪电/火箭 | Performance, Speed, Optimization |
-| **数据/分析** | 柱状图/折线图 | Analytics, Monitoring, Metrics |
-| **网络/连接** | 地球/链接 | Network, API, Integration |
-| **配置/设置** | 齿轮 | Configuration, Settings, Options |
-| **数据库** | 圆柱体 | Database, Storage, Cache |
-| **代码/开发** | 代码标签 | Development, Programming, SDK |
-| **保护/防御** | 盾牌 | Protection, Firewall, Security |
-| **刷新/重试** | 循环箭头 | Retry, Refresh, Sync |
-| **警告** | 三角感叹号 | Warning, Alert, Caution |
-| **成功** | 对勾 | Success, Complete, Done |
-| **信息** | 圆圈 i | Info, Note, Tip |
-| **错误** | X | Error, Failed, Wrong |
-| **用户** | 人形 | User, Account, Profile |
-| **流程** | 箭头 | Flow, Process, Pipeline |
+| Semantic | Icon Type | Example Scenarios |
+|----------|-----------|-------------------|
+| **Security/Auth** | Lock/Shield | Authentication, Security, Authorization |
+| **Performance/Speed** | Lightning/Rocket | Performance, Speed, Optimization |
+| **Data/Analytics** | Bar/Line chart | Analytics, Monitoring, Metrics |
+| **Network/Connection** | Globe/Link | Network, API, Integration |
+| **Config/Settings** | Gear | Configuration, Settings, Options |
+| **Database** | Cylinder | Database, Storage, Cache |
+| **Code/Dev** | Code tag | Development, Programming, SDK |
+| **Protection/Defense** | Shield | Protection, Firewall, Security |
+| **Refresh/Retry** | Circular arrow | Retry, Refresh, Sync |
+| **Warning** | Triangle exclamation | Warning, Alert, Caution |
+| **Success** | Checkmark | Success, Complete, Done |
+| **Info** | Circle i | Info, Note, Tip |
+| **Error** | X | Error, Failed, Wrong |
+| **User** | Person | User, Account, Profile |
+| **Flow** | Arrow | Flow, Process, Pipeline |
 
 ### Common Icon Patterns
 
@@ -617,7 +617,7 @@ Need to present content?
 
 ### Icon Usage Examples
 
-**在 Feature Grid 中**:
+**In Feature Grid**:
 ```html
 <div class="feature-grid">
     <div class="feature-item">
@@ -633,7 +633,7 @@ Need to present content?
 </div>
 ```
 
-**在 Info Box 中嵌入图标**:
+**Embedded in Info Box**:
 ```html
 <div class="info-box">
     <div class="info-box-title">
@@ -653,44 +653,44 @@ Need to present content?
 
 ### Content Organization
 
-1. **使用基于组件的布局** 而非纯文本
-2. **添加视觉层次** 使用 cards, grids, boxes
-3. **使用语义化 SVG 图标** 为每个特性/标题
-4. **保持列表项描述性**（非单词）
-5. **限制每页列表项为 5 个**
+1. **Use component-based layouts** instead of plain text
+2. **Add visual hierarchy** using cards, grids, boxes
+3. **Use semantic SVG icons** for each feature/title
+4. **Keep list items descriptive** (not single words)
+5. **Limit list items to 5 per page**
 
 ### Color Usage
 
-1. **使用 CSS 变量** 定义所有颜色（禁止硬编码）
-2. **对比页面使用不同颜色**（左右两侧必须有明显视觉差异）
-3. **节制冷色** 仅用于强调
-4. **保持一致性** 跨所有幻灯片
+1. **Use CSS variables** to define all colors (no hardcoding)
+2. **Comparison pages use different colors** (left/right sides must have clear visual difference)
+3. **Use accent colors sparingly** only for emphasis
+4. **Maintain consistency** across all slides
 
 ### Visual Contrast
 
-1. **对比**: 使用不同颜色区分对比内容（左右两侧颜色必须不同）
-2. **强调**: 使用 accent-color 高亮关键词
-3. **内容**: 使用最小边框样式
-4. **层次**: 使用 card 阴影和 hover 效果
+1. **Contrast**: Use different colors to distinguish comparison content (left/right colors must differ)
+2. **Emphasis**: Use accent-color to highlight keywords
+3. **Content**: Use minimal border styles
+4. **Hierarchy**: Use card shadows and hover effects
 
 ### Layout Principles
 
-1. **基于网格的布局** 比自由形式更专业
-2. **居中对齐** 用于最大宽度容器
-3. **一致间距**（sections 使用 margin: 2rem auto）
-4. **响应式文本大小**（基础 1.5rem，按需调整）
+1. **Grid-based layouts** are more professional than free-form
+2. **Center alignment** for max-width containers
+3. **Consistent spacing** (sections use margin: 2rem auto)
+4. **Responsive text sizing** (base 1.5rem, adjust as needed)
 
 ---
 
 ## Summary
 
-**核心原则**:
-1. ⭐ 使用嵌套 section 结构（章节导航）
-2. ⭐ 每个特性/标题生成语义化 SVG 图标
-3. ⭐ 使用 CSS 变量，禁止硬编码颜色
-4. ⭐ 列表仅 1 级，每页最多 5 项
-5. ⭐ 根据内容类型选择合适的视觉组件
+**Core principles**:
+1. ⭐ Use nested section structure (chapter navigation)
+2. ⭐ Generate semantic SVG icons for each feature/title
+3. ⭐ Use CSS variables, no hardcoded colors
+4. ⭐ Lists are 1-level only, maximum 5 items per page
+5. ⭐ Choose appropriate visual components based on content type
 
-**文件引用**:
-- CSS 样式见 [styles.md](styles.md)
-- 工作流见 [SKILL.md](../SKILL.md)
+**File references**:
+- CSS styles: [styles.md](styles.md)
+- Workflow: [SKILL.md](../SKILL.md)
