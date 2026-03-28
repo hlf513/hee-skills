@@ -8,25 +8,11 @@ Claude Code Skills are reusable, specialized prompts that you can invoke with a 
 
 ## Available Skills
 
-### 📊 revealjs-presentation
-
-Create professional Reveal.js presentations with proper structure, color themes, and rich visual components.
-
-**Use when**: Creating technical presentations from scratch or modifying existing ones
-
-**Features**:
-- Proper h1/h2/h3 structure with nested sections
-- 6 built-in color themes (ocean, forest, sunset, night, cyber, rose)
-- Rich visual components (SVG icons, stat-grids, feature-grids, comparison-grids)
-- Base components (img-box, tag, card)
-- Image embedding validation
-- Self-contained HTML output
-
-**Usage**: `/revealjs-presentation`
-
-**Documentation**: See [skills/revealjs-presentation/SKILL.md](skills/revealjs-presentation/SKILL.md)
-
----
+| Skill | Description | Usage |
+|-------|-------------|-------|
+| 📊 **revealjs-presentation** | Create professional Reveal.js presentations with proper structure, color themes, and rich visual components. Supports 6 built-in themes, SVG icons, stat-grids, feature-grids, and self-contained HTML output. | `/revealjs-presentation` |
+| 🔍 **english-sentence-analyzer** | Deep syntactic analysis of English sentences for Chinese learners — sense group division, clause identification, POS tagging, syntactic function labeling, core word extraction, and Chinese translation. | `/english-sentence-analyzer` |
+| 🗣️ **english-pronunciation-coach** | English pronunciation analysis with DJ phonetic transcription. Identifies connected speech (linking, elision, assimilation), weak forms, word/sentence stress, and intonation patterns. | `/english-pronunciation-coach` |
 
 ## How to Use Skills
 
